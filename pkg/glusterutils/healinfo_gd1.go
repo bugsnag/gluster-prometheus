@@ -40,7 +40,7 @@ func (g *GD1) getHealDetails(cmd string) ([]HealEntry, error) {
 // HealInfo gets gluster vol heal info (GD1)
 func (g GD1) HealInfo(vol string) ([]HealEntry, error) {
 	// Get the overall heal count
-	cmd := fmt.Sprintf("vol heal %s events info  | head -1000 | grep \"<gfid:\" | wc -l", vol)
+	cmd := fmt.Sprintf("vol heal %s events info | head -1000 | grep \"<gfid:\" | wc -l", vol)
 	heals, err := g.getHealDetails(cmd)
 	if err != nil {
 		return nil, err
